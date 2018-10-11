@@ -8,70 +8,53 @@ function convertToRoman(num) {
 
   // Function declarations 
 
-  let underTen = function(digit) {
+  let converter = function(low, mid, high, digit) {
     if (digit <= 3) {
       for (let x = digit; x > 0; x--) {
-        romanArr = romanArr.concat('I');
+        romanArr = romanArr.concat(low);
       }
     }
     else if (digit == 4) {
-      romanArr = romanArr.concat(['I', 'V']);
+      romanArr = romanArr.concat([low, mid]);
     }
     else if (digit <= 8) {
-      romanArr = romanArr.concat('V');
+      romanArr = romanArr.concat(mid);
       for (let x = digit; x > 5; x--) {
-        romanArr = romanArr.concat('I');
+        romanArr = romanArr.concat(low);
       }
     }
     else if (digit == 9) {
-      romanArr = romanArr.concat(['I', 'X']);
-    }
+      romanArr = romanArr.concat([low, high]);
+    } 
+  }
+
+  let underTen = function(digit) {
+    converter('I', 'V', 'X', digit);
   }
 
   let underHundred = function(digit) {
-    if (digit <= 3) {
-      for (let x = digit; x > 0; x--) {
-        romanArr = romanArr.concat('X');
-      }
-    }
-    else if (digit == 4) {
-      romanArr = romanArr.concat(['X', 'L']);
-    }
-    else if (digit <= 8) {
-      romanArr = romanArr.concat('L');
-      for (let x = digit; x > 5; x--) {
-        romanArr = romanArr.concat('X');
-      }
-    }
-    else if (digit == 9) {
-      romanArr = romanArr.concat(['X', 'C']);
-    }
+    converter('X', 'L', 'C', digit);
   }
 
   let underThousand = function(digit) {
-    if (digit <= 3) {
-      for (let x = digit; x > 0; x--) {
-        romanArr = romanArr.concat('C');
-      }
-    }
-    else if (digit == 4) {
-      romanArr = romanArr.concat(['C', 'D']);
-    }
-    else if (digit <= 8) {
-      romanArr = romanArr.concat('D');
-      for (let x = digit; x > 5; x--) {
-        romanArr = romanArr.concat('C');
-      }
-    }
-    else if (digit == 9) {
-      romanArr = romanArr.concat(['C', 'M']);
-    }
+    converter('C', 'D', 'M', digit);
   }
 
   let overThousand = function(digit) {
     for (let x = digit; x > 0; x--) {
       romanArr = romanArr.concat('M');
     }
+  }
+
+  // Check if num is over 10000
+
+  if (normalArr.length > 4) {
+    let amountOver = normalArr.length - 4;
+    let newNum = ""
+    for (let x = 0; x <= amountOver; x++) {
+      newNum += `${normalArr[x]}`;
+    }
+    normalArr.splice(0, amountOver + 1, newNum);
   }
 
   // Main code
@@ -104,4 +87,4 @@ function convertToRoman(num) {
   return romanStr;
  }
  
- convertToRoman(2014);
+ convertToRoman(455);
