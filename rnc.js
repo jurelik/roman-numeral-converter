@@ -94,6 +94,8 @@ docForm.addEventListener('submit', function(e) {
 
   let value = document.getElementById('text-input').value;
   let result = document.getElementById('result');
+  let button = document.getElementById('submit-btn');
   
+  button.blur();
   result.textContent = convertToRoman(value);
 });
