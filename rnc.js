@@ -82,9 +82,18 @@ function convertToRoman(num) {
   }
 
   romanStr = romanArr.join("");
-
-  console.log(romanStr);
   return romanStr;
- }
- 
- convertToRoman(455);
+}
+
+// DOM Operations
+
+let docForm = document.getElementById('converter');
+
+docForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  let value = document.getElementById('text-input').value;
+  let result = document.getElementById('result');
+  
+  result.textContent = convertToRoman(value);
+});
