@@ -4,6 +4,7 @@
 }
 
 html, body {
+  background-color: rgb(221, 206, 166);
   font-family: Helvetica, sans-serif;
   font-size: 100%;
   margin: 0;
@@ -12,6 +13,96 @@ html, body {
 
 /* Class Definitions */
 
+.animation {
+  /* border: 1px solid black; */
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  height: 30px;
+  position: absolute;
+  bottom: 0px;
+}
+
 /* ID Definitions */
 
+#container {
+  align-items: center;
+  /* border: 3px solid black; */
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+}
+
+#container h1 {
+  /* border: 1px solid black; */
+  font-weight: 200;
+  margin: 10px;
+  padding: 0;
+  text-align: center;
+}
+
+#converter {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  width: 377px;
+}
+
+#result {
+  align-items: center;
+  /* border: 1px solid black; */
+  display:flex;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1em;
+  font-weight: 100;
+  height: 30px;
+  margin: 5px;
+}
+
+#submit-btn {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  font-size: 1em;
+  height: 30px;
+  margin-left: 5px;
+  width: 100px;
+}
+
+#submit-btn:active {
+  outline: none;
+  transform: scale(0.99);
+}
+
+#text-input {
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.5);
+  font-size: 1em;
+  height: 30px;
+  width: 100%;
+  min-width: 200px;
+}
+
 /* Media Queries */
+
+@media screen and (max-width: 401px) {
+  #container h1 {
+    font-size: 7vw;
+    font-weight: 300;
+  }
+
+  #converter {
+    align-items: center;
+    flex-direction: column;
+    width: 83vw;
+  }
+
+  #submit-btn {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
