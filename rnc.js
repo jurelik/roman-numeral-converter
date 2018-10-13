@@ -91,10 +91,36 @@ let docForm = document.getElementById('converter');
 
 docForm.addEventListener('submit', function(e) {
   e.preventDefault();
-
+  let floatUp = function floatUp() {
+    console.log(posVertical);
+    if (pos == window.innerHeight + 30) {
+      clearInterval(interval);
+      newDiv.parentNode.removeChild(newDiv);
+    }
+    else {
+      pos++;
+      anim.style.bottom = pos + 'px';
+    }
+  };
+ 
   let value = document.getElementById('text-input').value;
   let result = document.getElementById('result');
   let button = document.getElementById('submit-btn');
+
+  let target = document.getElementById('container');
+  let newDiv = document.createElement('p');
+  newDiv.className = 'animation';
+  newDiv.innerHTML = `${convertToRoman(value)}`;
+  target.parentNode.insertBefore(newDiv, target.nextSibling);
+  
+  let anim = document.querySelector('.animation');
+  let interval = setInterval(floatUp, 1);
+  let pos = 0;
+
+  let posVertical = Math.random() * (window.innerWidth);
+  anim.style.left = posVertical + 'px';
+
+  floatUp;
   
   button.blur();
   result.textContent = convertToRoman(value);

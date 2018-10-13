@@ -13,6 +13,15 @@ html, body {
 
 /* Class Definitions */
 
+.animation {
+  /* border: 1px solid black; */
+  color: white;
+  font-family: 'Times New Roman', Times, serif;
+  height: 30px;
+  position: absolute;
+  bottom: 0px;
+}
+
 /* ID Definitions */
 
 #container {
@@ -78,3 +87,22 @@ html, body {
 }
 
 /* Media Queries */
+
+@media screen and (max-width: 401px) {
+  #container h1 {
+    font-size: 7vw;
+    font-weight: 300;
+  }
+
+  #converter {
+    align-items: center;
+    flex-direction: column;
+    width: 83vw;
+  }
+
+  #submit-btn {
+    margin-left: 0;
+    margin-top: 5px;
+    width: 100%;
+  }
+}
